@@ -1,0 +1,43 @@
+#include <stdio.h>
+
+
+int pgcd(int a, int b) {
+    int q, r;
+
+    printf("\n--- Calcul du PGCD(%d, %d) ---\n", a, b);
+
+    while (b != 0) {
+        q = a / b;      
+        r = a % b;      
+
+        
+        printf("%d = %d × %d + %d\n", a, b, q, r);
+
+        a = b;
+        b = r;
+    }
+
+    printf("=> Le PGCD est : %d\n\n", a);
+    return a;
+}
+
+int main() {
+    int a, b, c, resultat;
+
+    printf("Donnez a : ");
+    scanf("%d", &a);
+
+    printf("Donnez b : ");
+    scanf("%d", &b);
+
+    printf("Donnez c : ");
+    scanf("%d", &c);
+
+    
+    int ab = pgcd(a, b);
+    resultat = pgcd(ab, c);
+
+    printf("PGCD final de %d, %d et %d = %d\n", a, b, c, resultat);
+
+    return 0;
+}
